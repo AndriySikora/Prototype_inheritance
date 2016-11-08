@@ -16,13 +16,13 @@
 	// constructor of Cart
 	var Cart = function (data) {
 		this.selectedGoods = data.selectedGoods || [];
-		this.discountAbsolute = data.discountAbsolute || 25;   ////  Èíòåðåñíî. Íà âõîäå íå ïðîñèëè, à êîðçèíà ïðÿâèëà èíèöèàòèâó è ñàìà äàëà ñêèäêó 25 äåíåã è 20 ïðîöåíòîâ?
+		this.discountAbsolute = data.discountAbsolute || 25;  
 		this.discountPercent = data.discountPercent || 20;
 		this.productQuantity = {};
 	};
 	Cart.prototype.addGoods = function(selectedGoods, quantity) {
 		if(selectedGoods.quantity >= quantity) {
-	   		this.selectedGoods.push(selectedGoods);       //// Áûëî áû åùå ëó÷øå îáúåäèíèòü ýòó è ñëåä ñòðîêó â îäèí îáúåêò
+	   		this.selectedGoods.push(selectedGoods);     
 	   		this.productQuantity[selectedGoods.id] = quantity;
 		}else{
 			console.error('No more '+ selectedGoods.title+' left in the store!');
@@ -37,7 +37,7 @@
 	// chande quantity of items in Cart
 	Cart.prototype.changeQuantityInCart = function(product, newQuantity){
 		if(this.productQuantity[product.id]){
-			this.productQuantity[product.id] = newQuantity; //// Ãäå ïðîâåðêà, ÷òî òàêîå êîëè÷åñòâî äîñòóïíî?
+			this.productQuantity[product.id] = newQuantity; 
 		}
 	}
 	// make discount on selected Goods
@@ -65,7 +65,7 @@
 	// reset quantity of goods in Cart
 	Cart.prototype.clear = function() {
 		this.productQuantity = {};
-		this.selectedGoods = [];           //// Ñêèäêè îñòàíóòñÿ íåîáíóëåííûìè
+		this.selectedGoods = [];        
 	};
 	// constructor of Order
 	var Order = function (data) {
@@ -82,7 +82,7 @@
 	Order.prototype.make = function() {
 		console.log(this.selectedGoods); 
 	}
-	var basebalCap = new Product({id: 1, title:'baseball cap', price: 90,            //// Äàæå åñëè ýòî íå ãëîáàëüíàÿ îáëàñòü - ìàññèâ äëÿ îäíîðîäíûõ äàííûõ ëîãè÷íåå è óäîáíåå â äàëüíåéøåé ðàáîòå, ÷åì ïðîèçâîëüíûé íàáîð ïåðåìåííûõ
+	var basebalCap = new Product({id: 1, title:'baseball cap', price: 90,           
 		shortDescript:'Polo Ralph Lauren Logo Baseball Cap', 
 		longDescript:'Baseball cap by Polo Ralph Lauren: cotton twill, domed crown with vent holes',quantity:10});
 	var jacket = new Product({id:2, title:'leather jacket',price:670,
@@ -119,6 +119,6 @@
 	}else{
 		console.log('Goods is not added to order');
 	}
-	cart.clear();	//// Îñòàíóòñÿ íåîáíóëåííûå ñêèäêè. Ïî÷åìó òàê? Êòî ìåøàë ñäåëàòü new? 
+	cart.clear();	
 })();
 
